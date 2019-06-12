@@ -1,0 +1,54 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: baixingyu
+    url: jdbc:mysql://127.0.0.1:3306/project?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+    #配置全局的返回给前端的属性为空时不返回
+  jackson:
+    default-property-inclusion: non_null
+  redis:
+    host: 172.20.10.4
+    port: 6379
+#server:
+#  servlet:
+#    context-path: /sell
+#简单的日志配置
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+#    file: /logs/sell.log
+#    level: debug //也可以指定类
+server:
+  context-path: /sell
+#      com.bxy.sell.LoggerTest: debug
+
+wechat:
+  # 公众账号，授权(获取openid）
+#  mpAppId: wx38e9831e438e3c1d
+  mpAppId: wxd898fcb01713c658
+  mpAppSecret: 8fc562940793d9e74ab7f68c1e9e7f81
+
+  #开放平台 ，卖家扫码登录
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+  #企业资质，微信支付
+  mchId: 1483469312
+  mchKey: C5245D70627C1F8E9964D494B0735025
+  keyPath: /var/weixin_cert/h5.p12
+  notifyUrl: http://yushen.natapp1.cc/sell/pay/notify
+
+
+projectUrl:
+    wechatMpAuthorize: http://yushen.natapp1.cc
+    wechatOpenAuthorize: http://yushen.natapp1.cc
+    sell: http://yushen.natapp1.cc
+#打印sql语句
+logging:
+  level:
+    com.bxy.sell.dataobject.mapper: trace
+#mapper文件路径
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
